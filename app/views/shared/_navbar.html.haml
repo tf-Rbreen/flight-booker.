@@ -11,15 +11,5 @@
           %a.nav-link.active{"aria-current" => "page", :href => "/search"} Flights
         %li.nav-item
           %a.nav-link{:href => "search_for_flight"} Search for Flight
-        %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
-          %ul.dropdown-menu
-            %li
-              %a.dropdown-item{:href => "#"} Help
-            %li
-              %a.dropdown-item{:href => "bookings"} Booked Flights
-            %li
-              %hr.dropdown-divider/
-            %li
-              %a.dropdown-item{:href => "#"} Close
+        %li.nav-item
+          %a.nav-link{:href => "bookings"} Booked flights
