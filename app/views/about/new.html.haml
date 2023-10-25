@@ -1,0 +1,30 @@
+.d-flex.align-items-center.justify-content-center
+  %h1 Passenger details
+= form_with model: @Passenger, url: about_path do |form|
+  .mb-3
+    = form.label :Flight_ID
+    = form.text_field :flightid, class: "form-control", placeholder: ""
+  .mb-3
+    = form.label :name
+    = form.text_field :fname, class: "form-control", placeholder: "Name"
+  .mb-3
+    = form.label :surname
+    = form.text_field :sname, class: "form-control", placeholder: "Surname"
+  .mb-3
+    = form.label :email
+    = form.text_field :email, class: "form-control", placeholder: "*******@email.com"
+  .mb-3
+    = form.label :passport_number
+    = form.text_field :passportnum, class: "form-control", placeholder: "*********"
+  .mb-3
+    = form.label :date_of_birth, style: "display: block"
+    = form.date_field :dateofbirth
+  %h6 gender
+  %div
+    %input#huey{:checked => "checked", :name => "drone", :type => "radio", :value => "huey"}/
+    %label{:for => "huey"} Male
+  %div
+    %input#huey{:checked => "checked", :name => "drone", :type => "radio", :value => "huey"}/
+    %label{:for => "huey"} Female
+  .mb-3
+    = form.submit "confirm details", class: "btn btn-primary"

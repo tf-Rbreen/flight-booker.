@@ -1,0 +1,25 @@
+%nav.navbar.navbar-expand-lg.bg-body-tertiary
+  .container-fluid
+    %a.navbar-brand{:href => "/create_flights"} Flight Booker
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        %li.nav-item
+          %a.nav-link.active{"aria-current" => "page", :href => "/create_flights/new"} Book a flight
+        %li.nav-item
+          %a.nav-link.active{"aria-current" => "page", :href => "/search"} Flights
+        %li.nav-item
+          %a.nav-link{:href => "search_for_flight"} Search for Flight
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+            Dropdown
+          %ul.dropdown-menu
+            %li
+              %a.dropdown-item{:href => "#"} Help
+            %li
+              %a.dropdown-item{:href => "bookings"} Booked Flights
+            %li
+              %hr.dropdown-divider/
+            %li
+              %a.dropdown-item{:href => "#"} Close

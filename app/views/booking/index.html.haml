@@ -1,0 +1,23 @@
+%h1 Enter Booking Details
+= form_with model: @booking do |form|
+  = form.label :flight_id, "Flight ID:", style: "display: block"
+  = form.number_field :flight_id
+  %br/
+  %br/
+  = form.label :passenger_name, "Name:", style: "display: block"
+  = form.text_field :passenger_name
+  %br/
+  %br/
+  = form.label :passenger_email, "Email", style: "display: block"
+  = form.text_field :passenger_email
+  %br/
+  %br/
+  = form.label :no_passenger, "Enter How Many Passengers:", style: "display: block"
+  = form.select :Airport, ["1","2","3","4"]
+
+  %br/
+  %br/
+  = form.submit
+  %br/
+  %br/
+  = @booking

@@ -1,0 +1,5 @@
+= form_tag(search_for_flight_path, :method => "get") do
+  .input-group
+    = search_field_tag :search, params[:search], placeholder: "Type ", class: "form-control"
+    .input-group-btn
+      = button_tag "Search for Flight", :class => 'btn-btn-info glyphicon glyphicon-search', :depairport => nil

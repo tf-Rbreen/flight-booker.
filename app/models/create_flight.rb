@@ -1,0 +1,2 @@
+class CreateFlight < ApplicationRecord
+end

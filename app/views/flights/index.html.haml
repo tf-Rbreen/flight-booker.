@@ -1,0 +1,14 @@
+.d-flex.align-items-center.justify-content-center
+  %h1 Book A Flight
+= form_with model: @Passenger, url: about_path do |form|
+  .mb-3
+    = form.label :DepAirport
+    = form.text_field :name, class: "form-control", placeholder: "***"
+  .mb-3
+    = form.label :ArrAirport
+    = form.text_field :surname, class: "form-control", placeholder: "***"
+  .mb-3
+    = form.label :Date
+    = form.date_field :Date, class: "form-control", placeholder: ""
+  .mb-3
+    = form.submit "confirm details", class: "btn btn-primary"

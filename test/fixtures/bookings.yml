@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flightid: MyString
+  fname: MyString
+  sname: MyString
+  email: MyString
+  passportnum: MyString
+  dateofbirth: 2023-10-19 14:56:19
+  gender: MyString
+
+two:
+  flightid: MyString
+  fname: MyString
+  sname: MyString
+  email: MyString
+  passportnum: MyString
+  dateofbirth: 2023-10-19 14:56:19
+  gender: MyString
