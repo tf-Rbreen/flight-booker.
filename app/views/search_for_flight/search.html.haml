@@ -4,7 +4,7 @@
     .input-group-btn
       = button_tag "Search for Flight", :class => 'btn-btn-info glyphicon glyphicon-search', :depairport => nil
 %h3 Search Results
-%h6
+
 - @results.each do |result|
   Flight ID: #{result.id}
   %br/
