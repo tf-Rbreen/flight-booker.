@@ -1,10 +1,12 @@
-# README
+# Flight Booker README
 
-In this project, I will build the first three steps of a typical checkout process for booking a one-way flight:
-
-A typical airline booking flow:
-
-1. Enter desired dates/airports and click “Search”
-2. Choose from a list of available flights
-3. Enter passenger information for all passengers
-
+## Key Changes
+### 16/10/23
+- created all pages
+### 17/10/23
+- Used rails scaffold function 
+- Ability to add new flights and destroy flights etc. 
+- Added dropdown elemnets
+- Added search function
+### 18/10/23
+- Created passenger and booking table
