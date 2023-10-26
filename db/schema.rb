@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_10_19_135619) do
-  create_table "bookings", force: :cascade do |t|
+  create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "flightid"
     t.string "fname"
     t.string "sname"
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_135619) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "create_flights", force: :cascade do |t|
+  create_table "create_flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "depairport"
     t.string "arrairport"
     t.datetime "datetime"
