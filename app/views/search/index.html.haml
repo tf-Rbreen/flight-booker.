@@ -2,7 +2,7 @@
   %h1 Available Flights
 %h1
 %div
-  %h2 Select your desired flight time
+
 %div
   %input#huey{:checked => "checked", :name => "drone", :type => "radio", :value => "huey"}/
   %label{:for => "huey"} 05:00
@@ -21,4 +21,4 @@
   %div
   %input#huey{:checked => "checked", :name => "drone", :type => "radio", :value => "huey"}/
   %label{:for => "huey"} 20:00
-= link_to "confirm", about_path
+= link_to "confirm", passenger_path

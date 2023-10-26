@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :airports
  get "search", to: "search#index"
 
- get "about", to: "about#new"
- post "about", to: "booking#create"
+ get "passenger", to: "passenger#new"
+ post "passenger", to: "booking#create"
 
  get "flights", to: "flight#new"
 

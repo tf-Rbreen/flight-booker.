@@ -10,7 +10,7 @@ class CreateFlightsController < ApplicationController
   end
 
   def new
-    @createflight = CreateFlight.new
+    @create_flight = CreateFlight.new
   end
 
   def edit
@@ -23,15 +23,15 @@ class CreateFlightsController < ApplicationController
 
   # POST /flights or /flights.json
   def create
-    @createflight = CreateFlight.new(flight_params)
+    @create_flight = CreateFlight.new(flight_params)
 
     respond_to do |format|
       if @createflight.save
-        format.html { redirect_to flight_url(@createflight), notice: "Flight was successfully created." }
-        format.json { render :show, status: :created, location: @createflight }
+        format.html { redirect_to flight_url(@create_flight), notice: "Flight was successfully created." }
+        format.json { render :show, status: :created, location: @create_flight }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @createflight.errors, status: :unprocessable_entity }
+        format.json { render json: @create_flight.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,18 +40,18 @@ class CreateFlightsController < ApplicationController
   def update
     respond_to do |format|
       if @createflight.update(flight_params)
-        format.html { redirect_to flight_url(@createflight), notice: "Flight was successfully updated." }
-        format.json { render :show, status: :ok, location: @createflight }
+        format.html { redirect_to create_flights_url(@create_flight), notice: "Flight was successfully updated." }
+        format.json { render :show, status: :ok, location: @create_flight }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @createflight.errors, status: :unprocessable_entity }
+        format.json { render json: @create_flight.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /flights/1 or /flights/1.json
   def destroy
-    @createflight.destroy!
+    @create_flight.destroy!
 
     respond_to do |format|
       format.html { redirect_to flights_url, notice: "Flight was successfully destroyed." }
@@ -61,12 +61,12 @@ class CreateFlightsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_flight
-      @createflight = Flight.find(params[:id])
+    def set_create_flight
+      @createflight = CreateFlight.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def createflight_params
-      params.require(:flight).permit(:dep_airport, :arr_airport, :dep_time, :duration)
+    def create_flight_params
+      params.require(:create_flight).permit(:dep_airport, :arr_airport, :dep_time, :duration)
     end
 end
