@@ -1,6 +1,5 @@
 class CreateFlightsController < ApplicationController
-  before_action :set_create_flight, only: %i[ show edit update destroy ]
-
+  before_action :set_create_flight, only: [:show, :edit, :update, :destroy ]
 
   def index
     @create_flights = CreateFlight.all
@@ -16,18 +15,12 @@ class CreateFlightsController < ApplicationController
   def edit
   end
 
-  def search
-    @parameter = params[:search]
-    @results = CreateFlight.all.where("dep_airport LIKE :search", search: "#{@parameter}%")
-  end
-
-  # POST /flights or /flights.json
   def create
-    @create_flight = CreateFlight.new(flight_params)
+    @create_flight = CreateFlight.new(create_flight_params)
 
     respond_to do |format|
-      if @createflight.save
-        format.html { redirect_to flight_url(@create_flight), notice: "Flight was successfully created." }
+      if @create_flight.save
+        format.html { redirect_to create_flight_url(@create_flight), notice: "Flight was successfully created." }
         format.json { render :show, status: :created, location: @create_flight }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,11 +29,10 @@ class CreateFlightsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /flights/1 or /flights/1.json
   def update
     respond_to do |format|
-      if @createflight.update(flight_params)
-        format.html { redirect_to create_flights_url(@create_flight), notice: "Flight was successfully updated." }
+      if @create_flight.update(create_flight_params)
+        format.html { redirect_to create_flight_url(@create_flight), notice: "Flight was successfully updated." }
         format.json { render :show, status: :ok, location: @create_flight }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,24 +41,26 @@ class CreateFlightsController < ApplicationController
     end
   end
 
-  # DELETE /flights/1 or /flights/1.json
   def destroy
     @create_flight.destroy!
 
     respond_to do |format|
-      format.html { redirect_to flights_url, notice: "Flight was successfully destroyed." }
+      format.html { redirect_to create_flights_url, notice: "Create flight was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_create_flight
-      @createflight = CreateFlight.find(params[:id])
+      @create_flight = CreateFlight.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def create_flight_params
-      params.require(:create_flight).permit(:dep_airport, :arr_airport, :dep_time, :duration)
+      params.require(:create_flight).permit(:depairport, :arrairport, :datetime)
     end
+
+    def search_params
+      params.require(:create_flight).permit(:depairport,:arrairport,:datetime )
+end
 end
