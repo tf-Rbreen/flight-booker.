@@ -15,11 +15,11 @@ class Flight < ApplicationRecord
   scope :with_arrival_airport_id, -> (airport_id) do
     where(arrival_airport_id: airport_id)
   end
-  scope :with_departure_time, -> (departure_time) do
-    where(departure_time: departure_time...(departure_time + 1.day))
+  scope :with_dep_time, -> (dep_time) do
+    where(dep_time: departure_time...(dep_time + 1.day))
   end
 
-  def departure_time_ymd
-    self[:departure_time].strftime("%Y-%m-%d")
+  def dep_time_ymd
+    self[:dep_time].strftime("%Y-%m-%d")
   end
 end

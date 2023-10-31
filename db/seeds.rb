@@ -1,38 +1,15 @@
 # Flight has an Airport foreign key, so order matters here.
-Flight.destroy_all
-Airport.destroy_all
+Airport.delete_all
+Flight.delete_all
 
-# -- Airports --
+  codes = %w[UCLA NYC ABJ LAX JFK MIA DC CAL ATL]
+  codes.each do |abbr|
+    Airport.create(code: "#{abbr}")
+  end
 
-100.times do
-  Airport.create!({ code: Faker::Name.unique.initials(number: 3) })
-end
-
-p "Created #{Airport.count} airports"
-
-
-# -- Flights --
-
-# Time in seconds
-thirty_minutes = 1_800
-fifteen_hours = 54_000
-duration_range = (thirty_minutes..fifteen_hours)
-
-# All airport ids
-airport_ids = Airport.pluck :id
-
-100.times do
-  # Pick two random airports
-  departure_airport_id = airport_ids.delete(airport_ids.sample)
-  arrival_airport_id = airport_ids.sample
-
-  Flight.create!({ duration: Faker::Number.within(range: duration_range),
-                   departure_time: Faker::Time.forward(days: 300),
-                   departure_airport_id: departure_airport_id,
-                   arrival_airport_id: arrival_airport_id })
-
-  # Make sure to reset to include all ids for the next flight
-  airport_ids << departure_airport_id
-end
-
-p "Created #{Flight.count} flights"
+  airports = Airport.all.to_a.permutation(2).to_a
+  airports.sample(5).each do |id|
+    departure = Faker::Time.between(from: DateTime.now, to: 7.days.from_now, format: :short) #=> "2018/10/15 10:48"
+    arrival = Faker::Time.between(from: departure, to: DateTime.parse(departure) + 17.hours, format: :short)
+    Flight.create(from_airport: id[0], to_airport: id[1], arrival_time: arrival, departure_time: departure)
+  end
