@@ -4,4 +4,3 @@ class SearchForFlightController < ApplicationController
             @results = CreateFlight.where("lower(depairport) LIKE :search", search: "%#{@parameter}")
     end
 end
-

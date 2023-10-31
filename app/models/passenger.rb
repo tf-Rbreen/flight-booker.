@@ -13,6 +13,5 @@
 #  updated_at      :datetime         not null
 #
 class Passenger < ApplicationRecord
-  validates :name, :email, presence: true
-  belongs_to :booking
+  belongs_to :booking, inverse_of: :passengers
 end

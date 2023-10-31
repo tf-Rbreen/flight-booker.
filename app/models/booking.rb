@@ -14,7 +14,8 @@
 #  updated_at  :datetime         not null
 #
 class Booking < ApplicationRecord
-  belongs_to :flights
-  has_many :passengers
-  accepts_nested_attributes_for :passengers
+  belongs_to :flight, inverse_of: :bookings
+  has_many :passengers, inverse_of: :booking
+
+  accepts_nested_attributes_for :passengers, allow_destroy: true
 end
