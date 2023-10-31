@@ -9,17 +9,17 @@ class CreateFlightsController < ApplicationController
   end
 
   def new
-    @create_flight = CreateFlight.new
+    @create_flights = CreateFlight.new
   end
 
   def edit
   end
 
   def create
-    @create_flight = CreateFlight.new(create_flight_params)
+    @create_flights = CreateFlight.new(create_flight_params)
 
     respond_to do |format|
-      if @create_flight.save
+      if @create_flights.save
         format.html { redirect_to create_flight_url(@create_flight), notice: "Flight was successfully created." }
         format.json { render :show, status: :created, location: @create_flight }
       else
@@ -31,7 +31,7 @@ class CreateFlightsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @create_flight.update(create_flight_params)
+      if @create_flights.update(create_flight_params)
         format.html { redirect_to create_flight_url(@create_flight), notice: "Flight was successfully updated." }
         format.json { render :show, status: :ok, location: @create_flight }
       else
@@ -42,7 +42,7 @@ class CreateFlightsController < ApplicationController
   end
 
   def destroy
-    @create_flight.destroy!
+    @create_flights.destroy!
 
     respond_to do |format|
       format.html { redirect_to create_flights_url, notice: "Create flight was successfully destroyed." }
@@ -53,7 +53,7 @@ class CreateFlightsController < ApplicationController
   private
 
     def set_create_flight
-      @create_flight = CreateFlight.find(params[:id])
+      @create_flights = CreateFlight.find(params[:id])
     end
 
     def create_flight_params

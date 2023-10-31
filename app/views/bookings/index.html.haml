@@ -1,0 +1,13 @@
+%p{:style => "color: green"}= notice
+%h1 Bookings
+%h2 Your saved flight bookings will show up here
+%h6 ----------------------------------------------------
+#booking
+  - @booking.each do |booking|
+    = render booking
+    = link_to "Edit this booking", edit_bookings_path
+    |
+    \#{button_to "Destroy this create flight", @create_flight, method: :delete}
+
+    %h6 ----------------------------------------------------
+    %p

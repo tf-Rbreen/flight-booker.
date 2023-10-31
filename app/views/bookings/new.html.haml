@@ -1,0 +1,18 @@
+%h3 Complete Booking
+= render 'flights/flight', flight: @flight
+%h4 Passengers Details...
+= form_with(model: @booking, local: true) do |form|
+  = form.hidden_field :flight_id, value: @flight.id
+  .passenger-form-container
+    = form.fields_for :passengers do |passengers_form|
+      = passengers_form.hidden_field :id, value: nil
+      .passenger-form-fields
+        .input-container
+          = passengers_form.text_field :name, class: 'passenger-input no-right-border', placeholder: 'Passenger Name'
+        .input-container
+          = passengers_form.text_field :email, class: 'passenger-input', placeholder: 'Passenger Email'
+  #confirmation-buttons
+    = link_to 'Cancel', root_path, id: 'cancel-booking'
+    = succeed "," do
+      %ion-icon{name: "airplane-sharp"}
+  = form.submit 'Book Flight', id: 'book-flight'
