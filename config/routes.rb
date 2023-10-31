@@ -1,21 +1,22 @@
 Rails.application.routes.draw do
   resources :create_flights
   resources :airports
- get "search", to: "search#index"
 
- get "passenger", to: "passenger#new"
- post "passenger", to: "booking#create"
+   get "search", to: "search#index"
 
- get "flights", to: "flight#new"
+   get "passenger", to: "passenger#new"
+   post "passenger", to: "booking#create"
 
- get "bookings", to: "booking#index"
+   get "flights", to: "flight#new"
 
- get "flight", to: "flights#index"
+   get "bookings", to: "bookings#index"
 
- get "create_flights", to: "create_flights#index"
+   get "flight", to: "flights#index"
 
- get "search_for_flight", to: "search_for_flight#search"
+   get "create_flights", to: "create_flights#index"
 
- root to: "main#index"
+   get "search_for_flight", to: "search_for_flight#search"
 
-end
+   root to: "main#index"
+
+  end

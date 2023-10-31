@@ -1,22 +1,20 @@
 = form_with(model: create_flight) do |form|
-  - if create_flight.error.any?
+  - if create_flight.errors.any?
     %div{:style => "color: red"}
       %h2
-        = pluralize(create_flight.error.count, "error")
-        prohibited this flight from being saved:
+        = pluralize(create_flight.errors.count, "error")
+        prohibited this create_flight from being saved:
       %ul
-        - create_flight.error.each do |error|
+        - create_flight.errors.each do |error|
           %li= error.full_message
   %div
-    = form.label :dep_airport, style: "display: block"
-    = form.select :dep_airport, ["SFO", "NYC", "LAX", "JFK"]
+    = form.label :Departing_From, style: "display: block"
+    = form.select :depairport, ["ARM", "JFK", "NYC", "LAX"]
   %div
-    = form.label :arr_airport, style: "display: block"
-    = form.select :arr_airport, ["NYC", "SFO", "LAX", "JFK"]
+    = form.label :Arriving_At, style: "display: block"
+    = form.select :arrairport, ["ARM", "JFK", "NYC", "LAX"]
   %div
     = form.label :Date_And_Time, style: "display: block"
     = form.datetime_field :datetime
   %div
     = form.submit
-
-
