@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  DepAirportID: 1
-  ArrAirportID: 1
-  TakeoffTime: 2023-10-16 17:14:33
-  Duration: 1.5
+  dep_airport: MyString
+  arr_airport: MyString
+  dep_time: 2023-10-30 11:28:54
+  arr_time: 2023-10-30 11:28:54
 
 two:
-  DepAirportID: 1
-  ArrAirportID: 1
-  TakeoffTime: 2023-10-16 17:14:33
-  Duration: 1.5
+  dep_airport: MyString
+  arr_airport: MyString
+  dep_time: 2023-10-30 11:28:54
+  arr_time: 2023-10-30 11:28:54

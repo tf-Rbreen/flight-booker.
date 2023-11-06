@@ -1,9 +1,15 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Flight has an Airport foreign key, so order matters here.
+Airport.delete_all
+Flight.delete_all
+
+  codes = %w[UCLA NYC ABJ LAX JFK MIA DC CAL ATL]
+  codes.each do |abbr|
+    Airport.create(code: "#{abbr}")
+  end
+
+  airports = Airport.all.to_a.permutation(2).to_a
+  airports.sample(5).each do |id|
+    departure = Faker::Time.between(from: DateTime.now, to: 7.days.from_now, format: :short) #=> "2018/10/15 10:48"
+    arrival = Faker::Time.between(from: departure, to: DateTime.parse(departure) + 17.hours, format: :short)
+    Flight.create(departure_airport: id[0], arrival_airport: id[1], arrival_time: arrival, departure_time: departure)
+  end

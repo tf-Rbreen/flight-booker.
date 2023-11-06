@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-%h1 Airports
-#airports
-  - @airports.each do |airport|
-    = render airport
-    %p
-      = link_to "Show this airport", airport
-= link_to "New airport", new_airport_path

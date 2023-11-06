@@ -1,0 +1,12 @@
+%div
+  %div
+    %p
+      %strong Flight
+    = render partial: booking.flight
+  %br/
+  %div
+    %strong Passengers
+    - booking.passengers.each do |passenger|
+      %p
+        = passenger.name
+        \- #{passenger.email}

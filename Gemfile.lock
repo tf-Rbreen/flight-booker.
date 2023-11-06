@@ -102,6 +102,8 @@ GEM
       ruby2_keywords
     erubi (1.12.0)
     erubis (2.7.0)
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     haml (6.2.3)
@@ -264,6 +266,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker
   haml-rails
   html2haml
   importmap-rails

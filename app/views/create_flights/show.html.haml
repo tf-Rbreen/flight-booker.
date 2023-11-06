@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-= render @create_flight
-%div
-  = link_to "Edit this create flight", edit_create_flight_path(@create_flight)
-  |
-  \#{link_to "Back to create flights", create_flights_path}
-
-  \#{button_to "Destroy this create flight", @create_flight, method: :delete}

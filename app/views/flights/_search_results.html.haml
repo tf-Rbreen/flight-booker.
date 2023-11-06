@@ -1,0 +1,13 @@
+- if not @flights.nil?
+  %h1 Available Flights
+  %div
+    = form_with url: "/bookings/new", method: :get do |booking_form|
+      = booking_form.hidden_field :num_passengers, { value: params[:num_passengers] }
+      - @flights.each do |flight|
+        %div
+          = booking_form.radio_button :flight_id, flight.id
+          = booking_form.label "flight_id_#{flight.id}".to_sym,                                             |
+            "#{flight.departure_airport.code} to #{flight.arrival_airport.code} - #{flight.departure_time}" |
+        %br/
+      %div
+        = booking_form.submit "Book flight"
