@@ -14,7 +14,7 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: "Mancity2020*"
+  password:
   socket: /tmp/mysql.sock
 
 development:
@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: flight_booker_production
-  username: flight_booker
-  password: <%= ENV["FLIGHT_BOOKER_DATABASE_PASSWORD"] %>
+  username: root
+  password: <%= Mancity2020* %>
