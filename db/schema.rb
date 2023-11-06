@@ -10,35 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_16_221823) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "airports", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2023_11_06_142926) do
+  create_table "airports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "bookings", force: :cascade do |t|
+  create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "flight_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
   end
 
-  create_table "flights", force: :cascade do |t|
+  create_table "flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "departure_time"
     t.bigint "departure_airport_id", null: false
     t.bigint "arrival_airport_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "duration"
+    t.datetime "arrival_time"
     t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
     t.index ["departure_airport_id"], name: "index_flights_on_departure_airport_id"
   end
 
-  create_table "passengers", force: :cascade do |t|
+  create_table "passengers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.bigint "booking_id", null: false

@@ -6,7 +6,7 @@ class FlightsController < ApplicationController
   def index
     @airports_options = options(Airport.all, :code, :id)
     @flights_options = options(Flight.order(:dep_time),
-                               :departure_time_ymd, :dep_time_ymd).uniq
+                               :dep_time_ymd, :dep_time_ymd).uniq
     @num_passengers_options = (1..4).map { |n| [n, n] }
   end
 

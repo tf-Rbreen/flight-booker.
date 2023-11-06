@@ -11,5 +11,5 @@ Flight.delete_all
   airports.sample(5).each do |id|
     departure = Faker::Time.between(from: DateTime.now, to: 7.days.from_now, format: :short) #=> "2018/10/15 10:48"
     arrival = Faker::Time.between(from: departure, to: DateTime.parse(departure) + 17.hours, format: :short)
-    Flight.create(from_airport: id[0], to_airport: id[1], arrival_time: arrival, departure_time: departure)
+    Flight.create(departure_airport: id[0], arrival_airport: id[1], arrival_time: arrival, departure_time: departure)
   end
