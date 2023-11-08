@@ -1,8 +1,8 @@
-- if not @flights.nil?
+- if @flights.present?
   %h1 Available Flights
   %div
     = form_with url: "/bookings/new", method: :get do |booking_form|
-      = booking_form.hidden_field :num_passengers, { value: params[:num_passengers] }
+      = booking_form.hidden_field :num_passengers, { value: @num_passengers }
       - @flights.each do |flight|
         %div
           = booking_form.radio_button :flight_id, flight.id

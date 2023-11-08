@@ -24,6 +24,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_142926) do
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
   end
 
+  create_table "create_flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "depairport"
+    t.string "arrairport"
+    t.datetime "datetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "flights", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "departure_time"
     t.bigint "departure_airport_id", null: false

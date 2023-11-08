@@ -2,7 +2,7 @@
 Airport.delete_all
 Flight.delete_all
 
-  codes = %w[UCLA NYC ABJ LAX JFK MIA DC CAL ATL]
+  codes = %w[NYC ABJ LAX JFK MIA DC CAL ATL]
   codes.each do |abbr|
     Airport.create(code: "#{abbr}")
   end
